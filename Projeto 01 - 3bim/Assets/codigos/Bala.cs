@@ -1,45 +1,50 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Bala : MonoBehaviour
 {
-    
-    [ SerializeField ] private int dano = 1;
+    [SerializeField] private int dano = 1;
+    [SerializeField] private float velocidade = 1.5f;
 
+    private Renderer m_Renderer;
+    
     public void setDano(int dano)
     {
         this.dano = dano;
     }
-
     public int getDano()
     {
         return this.dano;
     }
     
+    
     void Start()
     {
-        
+        m_Renderer = GetComponent<Renderer>();
     }
 
+    
     void Update()
     {
-        
+        transform.Translate(velocidade * Time.deltaTime, 0, 0);
+
+        if (!m_Renderer.isVisible)
+        {
+            Destroy(this.gameObject);
+        }
     }
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Inimigo"))
         {
-            //causa dano do Inimigo 
+            // Causa dano ao Inimigo
             int novaVida = collision.gameObject.GetComponent<Personagem>().getVidas() - getDano();
-            collision.gameObject.GetComponent<Personagem>().setVidas( novaVida );
-            print ("A Vida restante do inimigo é " + novaVida);
+            collision.gameObject.GetComponent<Personagem>().setVidas(novaVida);
+            
+            //collision.gameObject.GetComponent<Personagem>().recebeDano(getDano());
         }
         
-        // desligar a bala apos a colisao
+        // desliga a bala apos a colisão
         gameObject.SetActive(false);
-        
     }
 }
-
-

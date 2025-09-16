@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class Arma : MonoBehaviour
@@ -6,30 +5,24 @@ public class Arma : MonoBehaviour
     public Transform saidaDaTiro;
     
     public GameObject bala;
-    public float intervaloDeDisparo = 0.5f;
-
-    private float tempoDeDisparo;
-
-
-
-    void Start()
-    {
-        
-    }
-
+    public float intevaloDeDisparo = 0.2f;
+    
+    private float tempoDeDisparo = 0;
+    
     void Update()
     {
-        if (tempoDeDisparo <= 0 && Input.GetKeyDown(KeyCode.Mouse0))
+        if (tempoDeDisparo <=0 && Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log("Bala disparada");
-            GameObject bala = Instantiate(this.bala);
+         
+            GameObject b = Instantiate (this.bala,saidaDaTiro.position, saidaDaTiro.rotation) as GameObject;
             
-            tempoDeDisparo = intervaloDeDisparo;
+            tempoDeDisparo = intevaloDeDisparo;
         }
 
         if (tempoDeDisparo > 0)
         {
             tempoDeDisparo -= Time.deltaTime;
-        }    
+        }
     }
 }
