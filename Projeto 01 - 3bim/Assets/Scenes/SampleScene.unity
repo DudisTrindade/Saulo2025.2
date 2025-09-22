@@ -796,6 +796,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1193137350267620072, guid: c2b3ccaec69571d4c8797fadd0b5ac60, type: 3}
+      propertyPath: vidas
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5413737096480055591, guid: c2b3ccaec69571d4c8797fadd0b5ac60, type: 3}
       propertyPath: cursor
       value: 
@@ -807,6 +811,18 @@ PrefabInstance:
     - target: {fileID: 5627151649377847199, guid: c2b3ccaec69571d4c8797fadd0b5ac60, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131007841944493235, guid: c2b3ccaec69571d4c8797fadd0b5ac60, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.33709
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131007841944493235, guid: c2b3ccaec69571d4c8797fadd0b5ac60, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.33709
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131007841944493235, guid: c2b3ccaec69571d4c8797fadd0b5ac60, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.33709
       objectReference: {fileID: 0}
     - target: {fileID: 6899003719552360971, guid: c2b3ccaec69571d4c8797fadd0b5ac60, type: 3}
       propertyPath: m_LocalScale.x
@@ -866,7 +882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9160214395454048507, guid: c2b3ccaec69571d4c8797fadd0b5ac60, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
