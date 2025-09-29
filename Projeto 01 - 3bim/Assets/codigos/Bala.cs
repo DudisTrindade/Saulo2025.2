@@ -38,13 +38,16 @@ public class Bala : MonoBehaviour
         if (collision.gameObject.CompareTag("Inimigo"))
         {
             // Causa dano ao Inimigo
-            int novaVida = collision.gameObject.GetComponent<Personagem>().getVidas() - getDano();
-            collision.gameObject.GetComponent<Personagem>().setVidas(novaVida);
+            int novaVida = collision.gameObject.GetComponent<Personagem>().getVida() - getDano();
+            collision.gameObject.GetComponent<Personagem>().setVida(novaVida);
             
             //collision.gameObject.GetComponent<Personagem>().recebeDano(getDano());
         }
         
         // desliga a bala apos a colisão
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        
+        //destrtoi a bala apos a colisão
+        Destroy(gameObject);
     }
 }

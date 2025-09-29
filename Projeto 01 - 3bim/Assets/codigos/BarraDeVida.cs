@@ -12,13 +12,10 @@ public class BarraDeVida : MonoBehaviour
   
     void Start()
     {
-        if (personagem != null)
+        if (personagem != null && sliderVidasRestantes != null)
         {
-            if (sliderVidasRestantes != null)
-            {
-                sliderVidasRestantes.minValue = 0;
-                sliderVidasRestantes.maxValue = personagem.getVidas();
-            }
+            sliderVidasRestantes.minValue = 0;
+            sliderVidasRestantes.maxValue = personagem.getVida();
         }
     }
 
@@ -26,7 +23,7 @@ public class BarraDeVida : MonoBehaviour
     {
         if (sliderVidasRestantes != null)
         {
-            vidasRestantes = personagem.getVidas();
+            vidasRestantes = personagem.getVida();
             sliderVidasRestantes.value = vidasRestantes;
         }
     }
