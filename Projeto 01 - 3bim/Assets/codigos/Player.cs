@@ -1,15 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Personagem
 {
     private SpriteRenderer spriteRenderer;
-
-    public Transform arma;
-
-    public bool andando;
-    
     private Animator animator;
     
+    private bool andando = false;
+    
+    public Transform arma;
     
     void Start()
     {
@@ -20,7 +19,6 @@ public class Player : Personagem
     void Update()
     {
         andando = false;
-        
         
         if (arma.rotation.eulerAngles.z > -90 
             && arma.rotation.eulerAngles.z < 90)
@@ -64,12 +62,13 @@ public class Player : Personagem
         
         if (getVida() <= 0)
         {
-            //desativa o objeto do Player
-            gameObject.SetActive(false);
-            
             Debug.Log("Jogador Morreu!!!");
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            //desativa o objeto do Player
+            //gameObject.SetActive(false);
         }
-        
         
         animator.SetBool("Andando", andando);
     }

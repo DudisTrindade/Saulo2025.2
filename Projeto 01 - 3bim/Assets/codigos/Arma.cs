@@ -26,12 +26,12 @@ public class Arma : MonoBehaviour
         
         if (gameObject.transform.rotation.eulerAngles.z > -90 && gameObject.transform.rotation.eulerAngles.z < 90)
         {
-            transform.localScale = new Vector3(0.392500013f , 0.392500013f, 0.392500013f);
+            transform.localScale = new Vector3( 0.392500013f , 0.392500013f, 1); 
         }
         
         if (gameObject.transform.rotation.eulerAngles.z > 90 && gameObject.transform.rotation.eulerAngles.z < 270)
         {
-            transform.localScale = new Vector3( 0.392500013f, -0.392500013f, 0.392500013f);
+            transform.localScale = new Vector3( 0.392500013f, -0.392500013f, 1);
         }
 
         
@@ -60,7 +60,6 @@ public class Arma : MonoBehaviour
             Debug.Log("Bala disparada");
          
             GameObject b = Instantiate (this.bala,saidaDoTiro.position, saidaDoTiro.rotation) as GameObject;
-            b.transform.localScale = new Vector3 (0.392500013f, 0.392500013f, 0.392500013f);
             
             tempoDeDisparo = intevaloDeDisparo;
         }

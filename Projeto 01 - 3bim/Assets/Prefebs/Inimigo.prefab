@@ -166,6 +166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 5
-  vidas: 10
+  vida: 0
   energia: 50
   dano: 1
+  raioDeVisao: 1
+  _visaoCollider2D: {fileID: 0}
+  posicaoDoPlayer: {fileID: 6899003719552360971, guid: c2b3ccaec69571d4c8797fadd0b5ac60, type: 3}
