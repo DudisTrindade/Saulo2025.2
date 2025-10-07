@@ -12,6 +12,9 @@ public class Inimigo : Personagem
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
+    private AudioSource audioSource;
+    
+    
     private bool andando = false;
     
     public void setDano(int dano)
@@ -28,6 +31,8 @@ public class Inimigo : Personagem
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         
+        audioSource = GetComponent<AudioSource>();
+        
         if (posicaoDoPlayer == null)
         {
             posicaoDoPlayer =  GameObject.Find("Player").transform;
@@ -39,34 +44,37 @@ public class Inimigo : Personagem
     void Update()
     {
         andando = false;
-        
-        if (posicaoDoPlayer.position.x - transform.position.x > 0)
+
+        if (getVida() > 0)
         {
-            spriteRenderer.flipX = false;
-        }
-        
-        if (posicaoDoPlayer.position.x - transform.position.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
+            if (posicaoDoPlayer.position.x - transform.position.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+
+            if (posicaoDoPlayer.position.x - transform.position.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
 
 
-        if (posicaoDoPlayer != null && 
-            Vector3.Distance(posicaoDoPlayer.position, transform.position) <= raioDeVisao )
-        {
-            Debug.Log("Posição do Pluer"+ posicaoDoPlayer.position);
-            
-            transform.position = Vector3.MoveTowards(transform.position, 
-                posicaoDoPlayer.transform.position,
-                getVelocidade() * Time.deltaTime);
-            
-            andando = true;
+            if (posicaoDoPlayer != null &&
+                Vector3.Distance(posicaoDoPlayer.position, transform.position) <= raioDeVisao)
+            {
+                Debug.Log("Posição do Pluer" + posicaoDoPlayer.position);
+
+                transform.position = Vector3.MoveTowards(transform.position,
+                    posicaoDoPlayer.transform.position,
+                    getVelocidade() * Time.deltaTime);
+
+                andando = true;
+            }
+
         }
-        
+
         if (getVida() <= 0)
         {
-            //desativa o objeto do Inimigo
-            gameObject.SetActive(false);
+            animator.SetTrigger("Morte");
         }
         
         animator.SetBool("Andando",andando);
@@ -82,8 +90,18 @@ public class Inimigo : Personagem
 
             //collision.gameObject.GetComponent<Personagem>().recebeDano(getDano());
             
-            //desativa quando bate no player
-            gameObject.SetActive(false);
+            setVida(0);
         }
+    }
+
+    public void playAudio()
+    {
+        audioSource.Play();
+    }
+
+    public void desative()
+    {
+        //desativa quando bate no player
+         gameObject.SetActive(false);
     }
 }

@@ -185,7 +185,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 4.12
+  m_Radius: 10.99
 --- !u!1 &5971617359320736341
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +402,15 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 972206917638430465, guid: 2db721a589a76d044bac00dc17e9eff7, type: 3}
+      propertyPath: energia
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 972206917638430465, guid: 2db721a589a76d044bac00dc17e9eff7, type: 3}
       propertyPath: velocidade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 972206917638430465, guid: 2db721a589a76d044bac00dc17e9eff7, type: 3}
+      propertyPath: raioDeVisao
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 972206917638430465, guid: 2db721a589a76d044bac00dc17e9eff7, type: 3}
