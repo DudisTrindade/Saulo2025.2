@@ -398,6 +398,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 972206917638430465, guid: 2db721a589a76d044bac00dc17e9eff7, type: 3}
+      propertyPath: dano
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 972206917638430465, guid: 2db721a589a76d044bac00dc17e9eff7, type: 3}
       propertyPath: vida
       value: 5
       objectReference: {fileID: 0}
