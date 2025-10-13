@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 3
-  vida: 20
+  vida: 10
   energia: 0
   arma: {fileID: 6131007841944493235}
 --- !u!58 &7795821896485268412
